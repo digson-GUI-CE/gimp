@@ -11,6 +11,22 @@ project('gimp',
 
 project_url = 'https://gitlab.gnome.org/GNOME/gimp'
 project_url_issues = project_url + '/issues/new'
+# 检测是否为 musl 环境
+if cc.has_function('strerror')
+  # musl 没有 error.h，添加兼容宏
+  add_project_arguments('-D__MUSL__', language: 'c')
+endif
+
+# 在项目根目录的 meson.build 顶部添加
+cc = meson.get_compiler('c')
+
+# 检测 musl（没有 __GLIBC__ 就是 musl）
+if not cc.has_header('gnu/libc-version.h')
+  add_project_arguments(
+    '-include', alpineconf.h',
+    language: ['c', 'cpp']
+  )
+endif
 
 conf = configuration_data()
 
