@@ -313,6 +313,7 @@ warning_cflags_c = [
   '-Wtautological-unsigned-enum-zero-compare',
   '-Wunneeded-internal-declaration',
   '-Wunused-function',
+  '-lexecinfo'
   '-Wunused-value',
 
   '-Werror=implicit-function-declaration',
