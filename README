@@ -26,6 +26,14 @@ The latest version of GIMP can be found at:
 
 	https://www.gimp.org/downloads/
 
+If you are alpine, you can run：
+
+'''bash
+meson setup builddir \
+  --prefix=/usr \
+  -Dlibdir=lib
+'''
+
 We also have a website dedicated to documentation at:
 
         https://docs.gimp.org/
