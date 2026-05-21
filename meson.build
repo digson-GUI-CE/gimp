@@ -27,6 +27,10 @@ if not cc.has_header('gnu/libc-version.h')
     language: ['c', 'cpp']
   )
 endif
+# 检测 Solaris 平台
+if host_machine.system() == 'sunos'
+  add_project_arguments('-include', 'Sunconf.h', language: ['c', 'cpp'])
+endif
 
 conf = configuration_data()
 
